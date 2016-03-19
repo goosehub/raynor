@@ -1,7 +1,3 @@
-# Base imports
-import time
-import random
-
 # Image imports
 # from PIL import Image
 # from PIL import ImageGrab
@@ -14,6 +10,7 @@ from command_center import *
 
 # Loading wait
 print("Ready to roll out")
-# time.sleep(5)
+time.sleep(5)
 
 center()
+hell_its_about_time()
