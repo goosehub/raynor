@@ -1,11 +1,12 @@
-# Resolution
+# Game Resolution
 screen_x = 1280
 screen_y = 720
-# Resolution
+# Desktop Resolution
 # screen_x = 1600
 # screen_y = 900
 
 # Hotkeys
+hk_master = '1'
 hk_cc = '1'
 hk_barracks = '2'
 hk_factory = '3'
