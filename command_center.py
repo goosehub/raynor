@@ -52,23 +52,29 @@ def center():
 def screen_drag_select():
     win32api.SetCursorPos([0, 0])
     left_click_down()
+    time.sleep(.05)
     win32api.SetCursorPos([screen_x, screen_y])
+    time.sleep(.05)
     left_click_up()
     center()
 
 def add_to_hotkey(hotkey):
     key_down('LSHIFT')
+    time.sleep(.1)
     key_down(hotkey)
     time.sleep(.1)
-    key_up('LSHIFT')
     key_up(hotkey)
+    time.sleep(.1)
+    key_up('LSHIFT')
 
 def reset_to_hotkey(hotkey):
     key_down('CTRL')
+    time.sleep(.1)
     key_down(hotkey)
     time.sleep(.1)
-    key_up('CTRL')
     key_up(hotkey)
+    time.sleep(.1)
+    key_up('CTRL')
 
 def select_hotkey(hotkey):
     press(hotkey)
@@ -112,8 +118,8 @@ def worker():
 def hell_its_about_time():
     center()
     exit_menu()
-    glhf()
     screen_drag_select()
     add_to_hotkey(hk_master)
     find_cc_at_start()
     worker()
+    glhf()
