@@ -97,7 +97,7 @@ def gg():
     press('g')
     press('ENTER')
 
-def find_cc_at_start():
+def find_base_at_start():
     win32api.SetCursorPos([ int( (screen_x / 2) + (screen_x / 12) ) , int( (screen_y / 2) + (screen_y / 12) ) ])
     left_click()
     add_to_hotkey(hk_master)
@@ -111,37 +111,60 @@ def find_cc_at_start():
     left_click()
     add_to_hotkey(hk_master)
 
-def center_on_cc():
+def center_on_base():
     press('1')
     press('1')
 
 def worker():
     select_hotkey(hk_master)
     press('TAB')
+    press('TAB')
     press('s')
+    press('d')
 
-def supply_depot():
+def overlord():
     select_hotkey(hk_master)
+    press('TAB')
+    press('TAB')
+    press('s')
+    press('v')
+
+def spawning_pool():
+    select_hotkey(hk_master)
+    press('TAB')
     press('b')
     press('s')
     for x in range(0, 20):
-        win32api.SetCursorPos([ int( randint(0, screen_x) ) , int( randint(0, screen_y) ) ])
+        win32api.SetCursorPos([ int( randint(screen_x / 5, screen_x) ) , int( randint(screen_y / 5, screen_y) ) ])
         left_click()
-    center_on_cc()
+    center_on_base()
 
-def barracks():
+def zergling():
     select_hotkey(hk_master)
-    press('b')
-    press('b')
-    for x in range(0, 20):
-        win32api.SetCursorPos([ int( randint(0, screen_x) ) , int( randint(0, screen_y) ) ])
-        left_click()
-    center_on_cc()
+    press('TAB')
+    press('TAB')
+    press('s')
+    press('z')
 
-def hell_its_about_time():
-    center()
+def queen():
+    select_hotkey(hk_master)
+    press('TAB')
+    press('TAB')
+    press('q')
+
+def select_all_army():
+    key_down('CTRL')
+    time.sleep(.1)
+    key_down('f2')
+    time.sleep(.1)
+    key_up('f2')
+    time.sleep(.1)
+    key_up('CTRL')
+
+def start_routine():
+    center_mouse()
     screen_drag_select()
     add_to_hotkey(hk_master)
-    find_cc_at_start()
+    find_base_at_start()
     worker()
     glhf()

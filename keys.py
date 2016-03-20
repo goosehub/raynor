@@ -73,4 +73,5 @@ Base = {
     'VOLUP': 175,
     'DOLDOWN': 174,
     'NUMLOCK': 144,
-    'SCROLL': 145 }
+    'SCROLL': 145,
+    'f2': 0x71 }
