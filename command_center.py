@@ -1,5 +1,8 @@
 # Base imports
 import time
+from random import randint
+
+# Windows imports
 import win32con
 import win32api
 from win32api import keybd_event, mouse_event
@@ -44,7 +47,7 @@ def right_click():
     time.sleep(.1)
     mouse_event(win32con.MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0)
 
-def center():
+def center_mouse():
     win32api.SetCursorPos([int(screen_x / 2), int(screen_y / 2)])
 
 def screen_drag_select():
@@ -54,7 +57,7 @@ def screen_drag_select():
     win32api.SetCursorPos([screen_x, screen_y])
     time.sleep(.05)
     left_click_up()
-    center()
+    center_mouse()
 
 def add_to_hotkey(hotkey):
     key_down('LSHIFT')
@@ -97,25 +100,48 @@ def gg():
 def find_cc_at_start():
     win32api.SetCursorPos([ int( (screen_x / 2) + (screen_x / 12) ) , int( (screen_y / 2) + (screen_y / 12) ) ])
     left_click()
-    add_to_hotkey(hk_cc)
+    add_to_hotkey(hk_master)
     win32api.SetCursorPos([ int( (screen_x / 2) + (screen_x / 12) ) , int( (screen_y / 2) - (screen_y / 12) ) ])
     left_click()
-    add_to_hotkey(hk_cc)
+    add_to_hotkey(hk_master)
     win32api.SetCursorPos([ int( (screen_x / 2) - (screen_x / 12) ) , int( (screen_y / 2) + (screen_y / 12) ) ])
     left_click()
-    add_to_hotkey(hk_cc)
+    add_to_hotkey(hk_master)
     win32api.SetCursorPos([ int( (screen_x / 2) - (screen_x / 12) ) , int( (screen_y / 2) - (screen_y / 12) ) ])
     left_click()
-    add_to_hotkey(hk_cc)
+    add_to_hotkey(hk_master)
+
+def center_on_cc():
+    press('1')
+    press('1')
 
 def worker():
-    select_hotkey(hk_cc)
+    select_hotkey(hk_master)
+    press('TAB')
     press('s')
+
+def supply_depot():
+    select_hotkey(hk_master)
+    press('b')
+    press('s')
+    for x in range(0, 20):
+        win32api.SetCursorPos([ int( randint(0, screen_x) ) , int( randint(0, screen_y) ) ])
+        left_click()
+    center_on_cc()
+
+def barracks():
+    select_hotkey(hk_master)
+    press('b')
+    press('b')
+    for x in range(0, 20):
+        win32api.SetCursorPos([ int( randint(0, screen_x) ) , int( randint(0, screen_y) ) ])
+        left_click()
+    center_on_cc()
 
 def hell_its_about_time():
     center()
     screen_drag_select()
-    add_to_hotkey(hk_workers)
+    add_to_hotkey(hk_master)
     find_cc_at_start()
     worker()
     glhf()
