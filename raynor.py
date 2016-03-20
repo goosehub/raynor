@@ -9,7 +9,8 @@ from command_center import *
 print ('glhf')
 time.sleep(5)
 
+exit_menu()
 hell_its_about_time()
-# time.sleep(12)
-# worker()
+time.sleep(12)
+worker()
 gg()

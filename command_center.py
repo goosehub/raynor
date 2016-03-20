@@ -1,8 +1,5 @@
 # Base imports
 import time
-import random
-
-# Windows imports
 import win32con
 import win32api
 from win32api import keybd_event, mouse_event
@@ -13,11 +10,12 @@ from config import *
 # Keys
 from keys import *
 
-def key_up(Key):
-    keybd_event(Base[Key], 0, 2, 0)
-
 def key_down(Key):
     keybd_event(Base[Key], 0, 1, 0)
+
+def key_up(Key):
+    keybd_event(Base[Key], 0, win32con.KEYEVENTF_EXTENDEDKEY  | 
+    win32con.KEYEVENTF_KEYUP, 0)
 
 def press(Key):
     key_down(Key)
@@ -99,27 +97,25 @@ def gg():
 def find_cc_at_start():
     win32api.SetCursorPos([ int( (screen_x / 2) + (screen_x / 12) ) , int( (screen_y / 2) + (screen_y / 12) ) ])
     left_click()
-    add_to_hotkey(hk_master)
+    add_to_hotkey(hk_cc)
     win32api.SetCursorPos([ int( (screen_x / 2) + (screen_x / 12) ) , int( (screen_y / 2) - (screen_y / 12) ) ])
     left_click()
-    add_to_hotkey(hk_master)
+    add_to_hotkey(hk_cc)
     win32api.SetCursorPos([ int( (screen_x / 2) - (screen_x / 12) ) , int( (screen_y / 2) + (screen_y / 12) ) ])
     left_click()
-    add_to_hotkey(hk_master)
+    add_to_hotkey(hk_cc)
     win32api.SetCursorPos([ int( (screen_x / 2) - (screen_x / 12) ) , int( (screen_y / 2) - (screen_y / 12) ) ])
     left_click()
-    add_to_hotkey(hk_master)
+    add_to_hotkey(hk_cc)
 
 def worker():
-    select_hotkey(hk_master)
-    press('TAB')
+    select_hotkey(hk_cc)
     press('s')
 
 def hell_its_about_time():
     center()
-    exit_menu()
     screen_drag_select()
-    add_to_hotkey(hk_master)
+    add_to_hotkey(hk_workers)
     find_cc_at_start()
     worker()
     glhf()

@@ -6,7 +6,6 @@ screen_y = 720
 # screen_y = 900
 
 # Hotkeys
-hk_master = '1'
 hk_cc = '1'
 hk_barracks = '2'
 hk_factory = '3'
