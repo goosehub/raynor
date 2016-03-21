@@ -13,6 +13,10 @@ from config import *
 # Keys
 from keys import *
 
+# 
+# Keyboard and mouse logic
+# 
+
 def key_down(Key):
     keybd_event(Base[Key], 0, 1, 0)
 
@@ -58,6 +62,10 @@ def screen_drag_select():
     time.sleep(.05)
     left_click_up()
     center_mouse()
+
+# 
+# StarCraft Logic
+# 
 
 def add_to_hotkey(hotkey):
     key_down('LSHIFT')
