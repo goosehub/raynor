@@ -115,41 +115,56 @@ def center_on_base():
     press('1')
     press('1')
 
-def worker():
+def worker(extra_tabs = False):
     select_hotkey(hk_master)
     press('TAB')
     press('TAB')
+    if extra_tabs:
+        press('TAB')
+        press('TAB')
     press('s')
     press('d')
 
-def overlord():
+def overlord(extra_tabs = False):
     select_hotkey(hk_master)
     press('TAB')
     press('TAB')
+    if extra_tabs:
+        press('TAB')
+        press('TAB')
     press('s')
     press('v')
 
-def spawning_pool():
+def spawning_pool(extra_tabs = False):
     select_hotkey(hk_master)
     press('TAB')
+    if extra_tabs:
+        press('TAB')
+        press('TAB')
     press('b')
     press('s')
     for x in range(0, 20):
-        win32api.SetCursorPos([ int( randint(screen_x / 5, screen_x) ) , int( randint(screen_y / 5, screen_y) ) ])
+        win32api.SetCursorPos([ int( randint(0, screen_x) ) , int( randint(0, int(screen_y * 0.80) ) ) ])
         left_click()
     center_on_base()
 
-def zergling():
+def zergling(extra_tabs = False):
     select_hotkey(hk_master)
     press('TAB')
     press('TAB')
+    if extra_tabs:
+        press('TAB')
+        press('TAB')
     press('s')
     press('z')
 
-def queen():
+def queen(extra_tabs = False):
     select_hotkey(hk_master)
     press('TAB')
     press('TAB')
+    if extra_tabs:
+        press('TAB')
+        press('TAB')
     press('q')
 
 def select_all_army():
@@ -161,6 +176,29 @@ def select_all_army():
     time.sleep(.1)
     key_up('CTRL')
 
+def inject():
+    center_on_base()
+    press('v')
+    win32api.SetCursorPos([ int( (screen_x / 2) + (screen_x / 12) ) , int( (screen_y / 2) + (screen_y / 12) ) ])
+    left_click()
+    win32api.SetCursorPos([ int( (screen_x / 2) + (screen_x / 12) ) , int( (screen_y / 2) - (screen_y / 12) ) ])
+    left_click()
+    win32api.SetCursorPos([ int( (screen_x / 2) - (screen_x / 12) ) , int( (screen_y / 2) + (screen_y / 12) ) ])
+    left_click()
+    win32api.SetCursorPos([ int( (screen_x / 2) - (screen_x / 12) ) , int( (screen_y / 2) - (screen_y / 12) ) ])
+    left_click()
+    center_on_base()
+
+def brute_force_attack():
+    select_all_army()
+    press('a')
+    key_down('LSHIFT')
+    for x in range(0, 25):
+        win32api.SetCursorPos([ int( randint( 0 , int( screen_x * 0.15 ) ) ) , int( randint( int( screen_y * 0.75 ), screen_y) ) ])
+        left_click()
+    center_on_base()
+    key_up('LSHIFT')
+
 def start_routine():
     center_mouse()
     screen_drag_select()
@@ -168,3 +206,7 @@ def start_routine():
     find_base_at_start()
     worker()
     glhf()
+
+def surrender():
+    press('f10')
+    press('n')

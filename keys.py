@@ -74,4 +74,5 @@ Base = {
     'DOLDOWN': 174,
     'NUMLOCK': 144,
     'SCROLL': 145,
-    'f2': 0x71 }
+    'f2': 0x71,
+    'f10': 0x79 }
